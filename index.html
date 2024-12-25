@@ -13,27 +13,17 @@
             padding: 0;
             background-color: #000;
             color: #fff;
-            background-image: url('Umbrella Mascot.jpg');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            position: relative;
         }
         header {
-            text-align: center;
-            padding: 20px;
-            color: white;
-            background: url('Umbrella Mascot.jpg') no-repeat center;
+            position: relative;
+            width: 100%;
+            height: 300px;
+            background: url('mascot1.jpg') no-repeat center;
             background-size: cover;
         }
-        header h1 {
-            margin: 0;
-            font-size: 3em;
-            text-shadow: 2px 2px 5px #ff6b6b;
-        }
-        header p {
-            margin: 10px 0 0;
-            font-size: 1.2em;
+        header h1, header p {
+            display: none; /* Banner'da sadece görsel görünsün */
         }
         .hero {
             text-align: center;
@@ -55,7 +45,8 @@
             font-size: 1.2em;
             margin: 20px 0;
         }
-        .cta button {
+        .cta a {
+            display: inline-block;
             background-color: #ff6b6b;
             color: white;
             padding: 15px 25px;
@@ -67,8 +58,9 @@
             text-transform: uppercase;
             font-weight: bold;
             box-shadow: 0 4px 8px rgba(255, 107, 107, 0.5);
+            text-decoration: none;
         }
-        .cta button:hover {
+        .cta a:hover {
             background-color: #f4d03f;
             color: #000;
             box-shadow: 0 4px 12px rgba(244, 208, 63, 0.8);
@@ -80,15 +72,51 @@
             background: rgba(0, 0, 0, 0.9);
             box-shadow: 0px 0px 10px 5px #ff6b6b;
             border-radius: 10px;
+            position: relative;
         }
         .sections h3 {
             font-family: 'Press Start 2P', cursive;
             color: #f4d03f;
         }
-        .sections p, .sections ul {
-            font-size: 1.1em;
-            line-height: 1.8;
-            color: #fefefe;
+        .roadmap-item {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+        }
+        .roadmap-item::before {
+            content: '✔';
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+        .roadmap-item.pending::before {
+            color: #ff6b6b;
+        }
+        .roadmap-item.ongoing::before {
+            color: #f4d03f;
+        }
+        .side-images {
+            position: fixed;
+            right: 20px;
+            top: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .side-images img {
+            max-width: 200px;
+            box-shadow: 0 0 8px #fff;
+        }
+        .side-images img:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s;
+        }
+        .bottom-left-image {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            max-width: 150px;
+            box-shadow: 0 0 8px #fff;
         }
         footer {
             text-align: center;
@@ -106,39 +134,43 @@
         footer a:hover {
             color: #ff6b6b;
         }
+        .disclaimer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #ff6b6b;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Umbrella Coin</h1>
-        <p>"Rain or Shine, We Moon!"</p>
-    </header>
+    <header></header>
     <div class="hero">
-        <img src="Umbrella Mascot.jpg" alt="Umbrella Mascot">
+        <img src="mascot1.jpg" alt="Umbrella Mascot">
         <h2>Welcome to the Umbrella Coin Revolution</h2>
         <p>Sheltering your gains from the storm and helping you ride the crypto wave.</p>
         <div class="cta">
-            <button>Join the Community</button>
+            <a href="https://x.com/meme_umbr" target="_blank">Join the Community</a>
             <button>Buy Umbrella Coin</button>
         </div>
     </div>
     <div class="sections">
-        <h3>About Umbrella Coin</h3>
-        <p>Umbrella Coin is a meme-driven cryptocurrency with a mission to bring fun and profits to the blockchain. Our goal is to build a strong community and protect your investments like an umbrella protects you from the rain.</p>
-
-        <h3>Tokenomics</h3>
-        <p>With a total supply of 1 billion tokens, Umbrella Coin is designed to reward holders and fund community initiatives. Join us to make a splash in the crypto market!</p>
-
         <h3>Roadmap</h3>
-        <ul>
-            <li>Phase 1: Launch Umbrella Coin and build community.</li>
-            <li>Phase 2: List on exchanges and release NFT umbrellas.</li>
-            <li>Phase 3: Expand ecosystem with games and rewards.</li>
-        </ul>
+        <div class="roadmap-item">Creating website and X account (Completed)</div>
+        <div class="roadmap-item">Implementing X AI Agent to X account (Completed)</div>
+        <div class="roadmap-item ongoing">Creating community and Hype (Ongoing)</div>
+        <div class="roadmap-item pending">Token Launch (Date TBD)</div>
+        <div class="roadmap-item pending">Enjoy the MOON</div>
     </div>
+    <div class="side-images">
+        <img src="mascot_rocket.jpg" alt="Mascot Rocket">
+        <img src="mascot_strong.jpg" alt="Mascot Strong">
+        <img src="mascot_love.jpg" alt="Mascot Love">
+    </div>
+    <img class="bottom-left-image" src="mascot4.jpg" alt="Mascot Bottom Left">
     <footer>
         <p>Follow us on <a href="https://x.com/meme_umbr" target="_blank">Twitter @meme_umbr</a> for the latest updates!</p>
         <p>© 2024 Umbrella Coin. All Rights Reserved.</p>
+        <p class="disclaimer">DISCLAIMER: As the nature of Meme Token, you might face permanent loss of funds. Invest at your own risk.</p>
     </footer>
 </body>
 </html>
